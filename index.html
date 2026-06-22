@@ -105,6 +105,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .stat .snum{font-family:'Archivo Black',sans-serif;font-size:2.5rem;line-height:1;color:var(--ac);}
 .stat .slabel{font-size:1.05rem;color:var(--text);font-weight:600;}
 .stat .sdesc{font-size:.92rem;color:var(--text-muted);line-height:1.45;}
+/* INDICADORES A MEDIR */
+.measures{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));margin-bottom:2.4rem;align-items:start;}
+.measure{background:var(--surface2);border:1px solid var(--border);border-top:3px solid var(--ac);border-radius:12px;padding:1.2rem 1.25rem;display:flex;flex-direction:column;gap:.7rem;}
+.measure h4{font-size:1.08rem;font-weight:600;color:var(--ac);}
+.measure ul{list-style:none;display:flex;flex-direction:column;gap:.45rem;}
+.measure li{position:relative;padding-left:1rem;font-size:.92rem;line-height:1.45;color:rgba(240,240,255,.82);}
+.measure li::before{content:'';position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--ac);opacity:.7;}
+
 /* CTA */
 .cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--ac);border-radius:16px;padding:1.9rem 1.8rem;margin-top:1.2rem;display:flex;flex-direction:column;gap:.75rem;text-align:center;box-shadow:0 0 34px var(--ag);}
 .cta .ctabig{font-family:'Archivo Black',sans-serif;font-size:clamp(1.2rem,3vw,1.7rem);color:#fff;}
@@ -178,21 +186,21 @@ footer b{color:var(--text);font-weight:600;}
   <button class="burger" onclick="document.getElementById('navlinks').classList.toggle('open')">&#9776;</button>
   <ul class="nav-links" id="navlinks">
     <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#problema">El Problema</a></li>
-    <li><a href="#propuesta">La Propuesta</a></li>
-    <li><a href="#evento">El Evento</a></li>
+    <li><a href="#contexto">El Contexto</a></li>
+    <li><a href="#iniciativas">Iniciativas</a></li>
+    <li><a href="#como">¿Cómo?</a></li>
+    <li><a href="#plan">Planeación</a></li>
     <li><a href="#impacto">Impacto</a></li>
-    <li><a href="#plan">Plan y Pedido</a></li>
   </ul>
 </nav>
 
 <div class="side-index" id="sideIndex">
   <a href="#inicio" data-s="inicio"><span>Inicio</span></a>
-  <a href="#problema" data-s="problema"><span>1 · El Problema</span></a>
-  <a href="#propuesta" data-s="propuesta"><span>2 · La Propuesta</span></a>
-  <a href="#evento" data-s="evento"><span>3 · El Evento</span></a>
-  <a href="#impacto" data-s="impacto"><span>4 · Impacto y Medición</span></a>
-  <a href="#plan" data-s="plan"><span>5 · Plan y Pedido</span></a>
+  <a href="#contexto" data-s="contexto"><span>1 · El Contexto</span></a>
+  <a href="#iniciativas" data-s="iniciativas"><span>2 · Iniciativas Ciudadanas</span></a>
+  <a href="#como" data-s="como"><span>3 · ¿Cómo?</span></a>
+  <a href="#plan" data-s="plan"><span>4 · Planeación y Presupuesto</span></a>
+  <a href="#impacto" data-s="impacto"><span>5 · Impacto y Medición</span></a>
 </div>
 
 <!-- HERO / SECCION 1 -->
@@ -218,49 +226,43 @@ footer b{color:var(--text);font-weight:600;}
   <div class="flow" id="flow"></div>
 </section>
 
-<!-- BLOQUE 1: EL PROBLEMA -->
-<section class="section reveal" id="problema" style="--ac:var(--cyan);--ag:rgba(0,229,255,.28)">
-  <div class="s-head"><div class="s-num">01</div><div><div class="s-eyebrow">Bloque 1 · ¿Por qué?</div><div class="s-title">El Problema</div></div><div class="s-line"></div></div>
-  <ul class="keypoints">
-    <li>En 2023 la <b>OMS declaró la soledad una preocupación de salud pública global</b>.</li>
-    <li>Cuatro grietas urbanas: <b>vivienda, soledad, desigualdad en ocio y cultura y salud mental</b>.</li>
-    <li>No son problemas personales, sino fruto de un modelo que priorizó la productividad sobre las personas — según OMS, Comisión Europea e instituciones españolas.</li>
-  </ul>
+<!-- BLOQUE 1: EL CONTEXTO -->
+<section class="section reveal" id="contexto" style="--ac:var(--cyan);--ag:rgba(0,229,255,.28)">
+  <div class="s-head"><div class="s-num">01</div><div><div class="s-eyebrow">Bloque 1</div><div class="s-title">El Contexto</div></div><div class="s-line"></div></div>
   <div class="boxes" id="boxesProblema"></div>
   <div class="carousel" id="carProblema"></div>
 </section>
 
-<!-- BLOQUE 2: LA BRECHA Y LA PROPUESTA -->
-<section class="section reveal" id="propuesta" style="--ac:var(--magenta);--ag:rgba(255,0,200,.28)">
-  <div class="s-head"><div class="s-num">02</div><div><div class="s-eyebrow">Bloque 2 · ¿Por qué? → ¿Qué?</div><div class="s-title">La Brecha y la Propuesta</div></div><div class="s-line"></div></div>
-  <ul class="keypoints">
-    <li>Las soluciones <b>ya existen</b> — del modelo de los 15 minutos a la vivienda colaborativa.</li>
-    <li>Pero del concepto a la acción las sepultan la falta de apoyo, los tiempos de espera y la burocracia.</li>
-    <li><b>FUTURA</b> es el lugar que falta: dos días en Matadero Madrid para proponer, de forma concreta y medible, la ciudad del futuro.</li>
-  </ul>
+<!-- BLOQUE 2: INICIATIVAS CIUDADANAS -->
+<section class="section reveal" id="iniciativas" style="--ac:var(--magenta);--ag:rgba(255,0,200,.28)">
+  <div class="s-head"><div class="s-num">02</div><div><div class="s-eyebrow">Bloque 2</div><div class="s-title">Iniciativas Ciudadanas</div></div><div class="s-line"></div></div>
+  <div class="boxes" id="boxesIniciativas"></div>
   <div class="carousel" id="carIniciativas"></div>
 </section>
 
-<!-- BLOQUE 3: EL EVENTO / CÓMO FUNCIONA -->
-<section class="section reveal" id="evento" style="--ac:var(--gold);--ag:rgba(255,184,0,.28)">
-  <div class="s-head"><div class="s-num">03</div><div><div class="s-eyebrow">Bloque 3 · ¿Cómo? · ¿Para quién?</div><div class="s-title">Cómo Funciona</div></div><div class="s-line"></div></div>
-  <ul class="keypoints">
-    <li>Un fin de semana en torno a <b>cuatro ejes</b>: vivienda, soledad, desigualdad y salud mental.</li>
-    <li><b>Cuatro componentes simultáneos</b>: charlas y ponencias, Futura Labs, participación ciudadana y Arte en Movimiento.</li>
-    <li>La <b>participación ciudadana</b> es el corazón: mesas temáticas, foro abierto y talleres familiares.</li>
-  </ul>
+<!-- BLOQUE 3: ¿CÓMO? -->
+<section class="section reveal" id="como" style="--ac:var(--gold);--ag:rgba(255,184,0,.28)">
+  <div class="s-head"><div class="s-num">03</div><div><div class="s-eyebrow">Bloque 3</div><div class="s-title">¿Cómo?</div></div><div class="s-line"></div></div>
   <div class="boxes compact" id="boxesEvento"></div>
   <div class="carousel" id="carEvento"></div>
 </section>
 
-<!-- BLOQUE 4: IMPACTO Y MEDICIÓN -->
+<!-- BLOQUE 4: PLANEACIÓN Y PRESUPUESTO -->
+<section class="section reveal" id="plan" style="--ac:var(--violet);--ag:rgba(123,47,255,.30)">
+  <div class="s-head"><div class="s-num">04</div><div><div class="s-eyebrow">Bloque 4</div><div class="s-title">Planeación y Presupuesto</div></div><div class="s-line"></div></div>
+  <div class="stats">
+    <div class="stat"><div class="snum">~142K €</div><div class="slabel">Costo total del evento</div></div>
+    <div class="stat"><div class="snum">54%</div><div class="slabel">Patrocinio</div></div>
+    <div class="stat"><div class="snum">46%</div><div class="slabel">Financiación</div></div>
+    <div class="stat"><div class="snum">6–7 meses</div><div class="slabel">Tiempo de planeación</div></div>
+  </div>
+  <p class="s-desc" style="margin-bottom:1.6rem">Documentos del plan disponibles para el jurado e inversores — pulsa para abrirlos.</p>
+  <div class="boxes grid3" id="boxesPlan"></div>
+</section>
+
+<!-- BLOQUE 5: IMPACTO Y MEDICIÓN -->
 <section class="section reveal" id="impacto" style="--ac:var(--green);--ag:rgba(0,229,160,.26)">
-  <div class="s-head"><div class="s-num">04</div><div><div class="s-eyebrow">Bloque 4 · ¿Qué riesgos? · ¿Para qué? + ¿Cómo medir?</div><div class="s-title">Impacto y Medición</div></div><div class="s-line"></div></div>
-  <ul class="keypoints">
-    <li>¿Otro fin de semana que se evapora el lunes? No: FUTURA <b>no termina el domingo</b>, ahí empieza su segunda parte.</li>
-    <li>Todo se entrega a los gobiernos locales en un <b>Documento de Propuestas Ciudadanas</b> con objetivos, plazos y criterios.</li>
-    <li>La evaluación es la fuente de legitimidad: definimos desde el inicio cómo sabremos que funcionó.</li>
-  </ul>
+  <div class="s-head"><div class="s-num">05</div><div><div class="s-eyebrow">Bloque 5</div><div class="s-title">Impacto y Medición</div></div><div class="s-line"></div></div>
   <div class="stats">
     <div class="stat"><div class="snum">~3.500</div><div class="slabel">Asistentes</div><div class="sdesc">Medidos por edad, género y localidad</div></div>
     <div class="stat"><div class="snum">≥20</div><div class="slabel">Propuestas en mesas</div><div class="sdesc">Mínimo 5 por eje temático</div></div>
@@ -269,34 +271,13 @@ footer b{color:var(--text);font-weight:600;}
     <div class="stat"><div class="snum">≥160</div><div class="slabel">Muro de Ideas</div><div class="sdesc">Ideas registradas</div></div>
     <div class="stat"><div class="snum">3</div><div class="slabel">Ciudades</div><div class="sdesc">Interesadas en replicar el evento</div></div>
   </div>
-  <ul class="keypoints" style="margin-bottom:1rem">
-    <li>El indicador clave: nº de <b>propuestas viables</b> que llegan a un gobierno local.</li>
-    <li>El fin no es celebrar un evento, sino traducir una conversación más humana y participativa en <b>proyectos ejecutables</b>.</li>
-  </ul>
+  <div class="measures">
+    <div class="measure"><h4>Afluencia e Inclusión</h4><ul><li>Número total de asistentes</li><li>Distribución de asistentes por edad, género y localidad</li><li>Total de productos de merchandising y otros</li><li>Carácter inclusivo, fluido y accesible de la actividad</li></ul></div>
+    <div class="measure"><h4>Participación ciudadana</h4><ul><li>N.º de presentaciones en las mesas de participación</li><li>N.º de personas en los talleres comunitarios</li><li>N.º de intervenciones en el foro abierto</li><li>N.º de entradas en el Muro de Ideas</li><li>Satisfacción y percepción de los participantes</li></ul></div>
+    <div class="measure"><h4>Generación de propuestas</h4><ul><li>N.º de propuestas documentadas</li><li>N.º de propuestas viables</li></ul></div>
+    <div class="measure"><h4>Replicabilidad</h4><ul><li>N.º de ciudades interesadas en replicar el evento</li></ul></div>
+  </div>
   <div class="boxes" id="boxesImpacto"></div>
-</section>
-
-<!-- BLOQUE 5: PLAN Y PEDIDO -->
-<section class="section reveal" id="plan" style="--ac:var(--violet);--ag:rgba(123,47,255,.30)">
-  <div class="s-head"><div class="s-num">05</div><div><div class="s-eyebrow">Bloque 5 · Viabilidad + Pedido</div><div class="s-title">Plan y Pedido</div></div><div class="s-line"></div></div>
-  <ul class="keypoints">
-    <li><b>Julio de 2027</b>: un día de montaje y dos de evento; comunicación desde seis meses antes.</li>
-    <li>Equipo completo: dirección y contenidos, comunicación, producción y logística, financiación y voluntariado.</li>
-    <li>Presupuesto cerrado en <b>141.800 €</b>, con financiación híbrida que reparte el riesgo.</li>
-  </ul>
-  <div class="stats">
-    <div class="stat"><div class="snum">46%</div><div class="slabel">Patrocinio</div><div class="sdesc">Patrocinador principal, patrocinadores y colaboradores</div></div>
-    <div class="stat"><div class="snum">24%</div><div class="slabel">Venta de entradas</div><div class="sdesc">Expertos, participantes y visitantes</div></div>
-    <div class="stat"><div class="snum">14%</div><div class="slabel">Productos y comida</div><div class="sdesc">Ingresos propios del evento</div></div>
-    <div class="stat"><div class="snum">+</div><div class="slabel">Cesión y Futura Labs</div><div class="sdesc">Cesión del espacio (Matadero) y alquiler de Futura Labs</div></div>
-  </div>
-  <p class="s-desc" style="margin-bottom:1.6rem">Documentos del plan disponibles para el jurado e inversores — pulsa para abrirlos.</p>
-  <div class="boxes grid3" id="boxesPlan"></div>
-  <div class="cta">
-    <div class="ctabig">El pedido</div>
-    <div class="ctasub">Aprobar el proyecto y respaldarlo como <b>Patrocinador Principal (20.000 €)</b> para encender la primera edición. Las ciudades las cambian las personas cuando por fin tienen un lugar donde ser escuchadas. FUTURA es ese lugar. Construyámoslo juntos.</div>
-    <span class="ctaask">Madrid 2027 · replicable en Bogotá · Ciudad de México · Sevilla</span>
-  </div>
 </section>
 
 <footer>
@@ -325,11 +306,11 @@ document.getElementById('heroLogo').src = DATA.logo;
 
 // ---- NODE MAP ----
 const nodes = [
-  {n:'01',label:'El Problema',desc:'Las cuatro grietas urbanas',href:'#problema',c:'var(--cyan)',g:'rgba(0,229,255,.28)'},
-  {n:'02',label:'La Propuesta',desc:'La brecha y FUTURA',href:'#propuesta',c:'var(--magenta)',g:'rgba(255,0,200,.28)'},
-  {n:'03',label:'El Evento',desc:'Cómo funciona',href:'#evento',c:'var(--gold)',g:'rgba(255,184,0,.28)'},
-  {n:'04',label:'Impacto y Medición',desc:'Riesgo, propuestas e indicadores',href:'#impacto',c:'var(--green)',g:'rgba(0,229,160,.26)'},
-  {n:'05',label:'Plan y Pedido',desc:'Viabilidad y cierre',href:'#plan',c:'var(--violet)',g:'rgba(123,47,255,.30)'}
+  {n:'01',label:'El Contexto',desc:'Las cuatro grietas urbanas',href:'#contexto',c:'var(--cyan)',g:'rgba(0,229,255,.28)'},
+  {n:'02',label:'Iniciativas Ciudadanas',desc:'Iniciativas en el mundo',href:'#iniciativas',c:'var(--magenta)',g:'rgba(255,0,200,.28)'},
+  {n:'03',label:'¿Cómo?',desc:'Dos días, cuatro componentes',href:'#como',c:'var(--gold)',g:'rgba(255,184,0,.28)'},
+  {n:'04',label:'Planeación y Presupuesto',desc:'Calendario, equipo y presupuesto',href:'#plan',c:'var(--violet)',g:'rgba(123,47,255,.30)'},
+  {n:'05',label:'Impacto y Medición',desc:'Indicadores y replicabilidad',href:'#impacto',c:'var(--green)',g:'rgba(0,229,160,.26)'}
 ];
 const flow = document.getElementById('flow');
 nodes.forEach((nd,i)=>{
@@ -344,7 +325,7 @@ nodes.forEach((nd,i)=>{
 const problemaBoxes=[
   {t:'Vivienda',d:'Crisis de vivienda y emancipación juvenil',slide:0},
   {t:'Soledad Urbana',d:'El aislamiento como fenómeno de las ciudades',slide:1},
-  {t:'Ocio y Cultura',d:'Desigualdad en el derecho a disfrutar la ciudad',slide:2},
+  {t:'Acceso a ocio y cultura',d:'Desigualdad en el derecho a disfrutar la ciudad',slide:2},
   {t:'Salud Mental Urbana',d:'El efecto del entorno urbano sobre el bienestar',slide:1}
 ];
 const evBoxes=[
@@ -364,6 +345,11 @@ const planBoxes=[
   {t:'Equipo Humano',d:'Talento y roles del proyecto',url:'https://drive.google.com/file/d/1_62gR0G6vqMxhPRi2tBOw4U3OUBd6sUV/view?usp=drive_link'}
 ];
 
+const iniciativasBoxes=[
+  {t:'Ciudad de los 15 minutos',slide:0},
+  {t:"Jane's Walks",slide:1},
+  {t:'One Shared House',slide:2}
+];
 function renderBoxes(containerId, items, carouselId){
   const c=document.getElementById(containerId);
   items.forEach(it=>{
@@ -375,13 +361,14 @@ function renderBoxes(containerId, items, carouselId){
     }else{
       const b=document.createElement('div');
       b.className='box';
-      b.innerHTML=`<h4>${it.t}</h4><p>${it.d}</p>`;
+      b.innerHTML=`<h4>${it.t}</h4>${it.d?`<p>${it.d}</p>`:''}`;
       b.onclick=()=>{ goToSlide(carouselId,it.slide); document.getElementById(carouselId).scrollIntoView({behavior:'smooth',block:'center'}); };
       c.appendChild(b);
     }
   });
 }
 renderBoxes('boxesProblema',problemaBoxes,'carProblema');
+renderBoxes('boxesIniciativas',iniciativasBoxes,'carIniciativas');
 renderBoxes('boxesEvento',evBoxes,'carEvento');
 renderBoxes('boxesImpacto',impactoBoxes,null);
 renderBoxes('boxesPlan',planBoxes,null);
@@ -441,7 +428,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.targe
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 // ---- ACTIVE DOT INDEX ----
-const secs=['inicio','problema','propuesta','evento','impacto','plan'];
+const secs=['inicio','contexto','iniciativas','como','plan','impacto'];
 const spy=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){document.querySelectorAll('#sideIndex a').forEach(a=>a.classList.toggle('active',a.dataset.s===e.target.id));}
 }),{threshold:.5});
